@@ -70,7 +70,7 @@ class _LoginFormState extends State<LoginForm> {
         MaterialPageRoute(builder: (context) => const DashboardPage()),
       );
     } else {
-      // ไม่สำเร็จ
+      // ล็อกอินไม่สำเร็จ
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Invalid username or password')),
       );
@@ -88,7 +88,7 @@ class DashboardPage extends StatelessWidget {
         title: const Text('Dashboard'),
       ),
       body: const Center(
-        child: Text('Welcome to the Dashboard!'),
+        child: Text('xxxx Welcome to the Dashboard! xxxx'),
       ),
     );
   }
