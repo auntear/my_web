@@ -14,46 +14,81 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextFormField(
-              controller: _usernameController,
-              decoration: const InputDecoration(labelText: 'Username'),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your username';
-                }
-                return null;
-              },
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          TextFormField(
+            controller: _usernameController,
+            decoration: InputDecoration(
+              prefixIcon: const Icon(Icons.person),
+              labelText: 'Username',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.0),
+              ),
             ),
-            const SizedBox(height: 16.0),
-            TextFormField(
-              controller: _passwordController,
-              decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your password';
-                }
-                return null;
-              },
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'กรุณากรอก username';
+              }
+              return null;
+            },
+          ),
+          const SizedBox(height: 16.0),
+          TextFormField(
+            controller: _passwordController,
+            decoration: InputDecoration(
+              prefixIcon: const Icon(Icons.lock),
+              labelText: 'Password',
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.0),
+              ),
             ),
-            const SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _login();
-                }
-              },
-              child: const Text('Login'),
+            obscureText: true,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'กรุณากรอก password';
+              }
+              return null;
+            },
+          ),
+          const SizedBox(height: 24.0),
+          ElevatedButton(
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                _login();
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 40.0, vertical: 16.0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+              textStyle: const TextStyle(fontSize: 18),
             ),
-          ],
-        ),
+            child: const Text('Login'),
+          ),
+          const SizedBox(height: 16.0),
+          TextButton(
+            onPressed: () {
+              // ลิงค์สำหรับการสมัครสมาชิก
+            },
+            child: const Text(
+              'สมัครสมาชิก',
+              style: TextStyle(color: Colors.blueAccent),
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              // ลิงค์สำหรับการรีเซ็ตรหัสผ่าน
+            },
+            child: const Text(
+              'ลืม Password',
+              style: TextStyle(color: Colors.blueAccent),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -62,15 +97,12 @@ class _LoginFormState extends State<LoginForm> {
     String username = _usernameController.text;
     String password = _passwordController.text;
 
-    // ตรวจสอบ username และ password 
     if (username == 'admin' && password == '1234') {
-      // ล็อกอินสำเร็จให้แสดงหน้าใหม่
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const DashboardPage()),
       );
     } else {
-      // ล็อกอินไม่สำเร็จ
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Invalid username or password')),
       );
@@ -88,7 +120,7 @@ class DashboardPage extends StatelessWidget {
         title: const Text('Dashboard'),
       ),
       body: const Center(
-        child: Text('xxxx Welcome to the Dashboard! xxxx'),
+        child: Text('Welcome to the Dashboard!'),
       ),
     );
   }
