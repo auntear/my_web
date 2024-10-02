@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_web/process/main_index.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -110,18 +111,4 @@ class _LoginFormState extends State<LoginForm> {
   }
 }
 
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashboard'),
-      ),
-      body: const Center(
-        child: Text('Welcome to the Dashboard!'),
-      ),
-    );
-  }
-}
