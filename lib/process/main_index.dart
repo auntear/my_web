@@ -11,46 +11,110 @@ class DashboardPage extends StatelessWidget {
           // ส่วนบน
           Container(
             color: const Color.fromARGB(255, 15, 37, 75), // พื้นหลังส่วนบน
-            height: MediaQuery.of(context).size.height *
-                0.2, // กำหนดความสูงเป็น 30% ของหน้าจอ
+            height: MediaQuery.of(context).size.height * 0.2,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start, // จัดให้อยู่ทางซ้าย
               children: [
                 const Padding(
-                  padding: EdgeInsets.only(
-                      top: 20.0,
-                      left: 16.0,
-                      right:
-                          16.0), // เพิ่ม padding ด้านบนให้ข้อความแรกห่างจากขอบจอ
-                  child: Text(
-                    'ส่วนของการเติมเงินและแสดงยูสเซอร์มั้ง',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  padding: EdgeInsets.only(top: 20.0, left: 16.0, right: 16.0),
+                  child: Row(
+                    children: [
+                      Icon(Icons.person, color: Colors.white),
+                      SizedBox(width: 8), // ระยะห่างระหว่างไอคอนและข้อความ
+                      Text(
+                        'Username',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const Spacer(), // เพิ่ม Spacer เพื่อให้เว้นระยะห่าง
-                const Center(
-                  child: Text(
-                    'ข้อความที่เพิ่มใหม่1', // ข้อความที่เพิ่มเข้ามา
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w400,
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(' คงเหลือ   ',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        )),
+                    Text(
+                      '100.' + '22222', // ข้อความที่เพิ่มเข้ามา
+                      style: TextStyle(
+                        color: Colors.yellow,
+                        fontSize: 30,
+                        fontStyle: FontStyle.italic,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
+                    Text('   บาท',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ))
+                  ],
+                ),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                          onPressed: () {},
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.payment,
+                                  color: Colors.white, size: 30),
+                              SizedBox(width: 8),
+                              Text(
+                                'เติมเงิน',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                          onPressed: () {},
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.local_atm,
+                                  color: Colors.white, size: 30),
+                              SizedBox(width: 8),
+                              Text(
+                                'ถอนเงิน',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const Spacer(), // เพิ่ม Spacer เพื่อเว้นระยะห่างที่เท่ากัน
-                Center(
-                    child: ElevatedButton(
-                  onPressed: () {
-                    // การทำงานของปุ่มขวา
-                  },
-                  child: const Text('ปุ่มขวา'),
-                )),
-                const Spacer(), // เพิ่ม Spacer เพื่อเว้นระยะห่างด้านล่าง
+                const Spacer(),
               ],
             ),
           ),
@@ -75,17 +139,159 @@ class DashboardPage extends StatelessWidget {
           // ส่วนล่าง
           Container(
             color: const Color.fromARGB(255, 15, 37, 75), // พื้นหลังส่วนล่าง
-            height:
-                MediaQuery.of(context).size.height * 0.3, // กำหนดขนาดความสูง
-            child: const Center(
-              child: Text(
-                'ส่วนของการเพิ่มปุ่ม และรายการฝากถอน',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+            height: MediaQuery.of(context).size.height * 0.3,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start, // จัดให้อยู่ทางซ้าย
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(35.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                          onPressed: () {},
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.touch_app,
+                                  color: Colors.black, size: 30),
+                              SizedBox(width: 8),
+                              Text(
+                                'แทงหวย',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 20),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                          onPressed: () {},
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.receipt,
+                                  color: Colors.black, size: 30),
+                              SizedBox(width: 8),
+                              Text(
+                                'โพยหวย',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 20),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                          onPressed: () {},
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.local_activity,
+                                  color: Colors.black, size: 30),
+                              SizedBox(width: 8),
+                              Text(
+                                'ผลรางวัล',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 20),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+                const Spacer(),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.payment, color: Colors.white, size: 30),
+                    SizedBox(width: 8),
+                    Text('จดหมาย/สอบถามปัญหา',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ))
+                  ],
+                ),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                          onPressed: () {},
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.swap_vert,
+                                  color: Colors.black, size: 30),
+                              SizedBox(width: 8),
+                              Text(
+                                'รายการฝาก-ถอน',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 20),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12))),
+                          onPressed: () {},
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.dehaze,
+                                  color: Colors.black, size: 30),
+                              SizedBox(width: 8),
+                              Text(
+                                'รายการเงิน',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 20),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const Spacer(),
+              ],
             ),
           ),
         ],
