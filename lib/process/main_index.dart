@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_web/process/bt_tang_bet/list_bet.dart';
+
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -154,7 +156,13 @@ class DashboardPage extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(vertical: 20),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12))),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ListBet()),
+                            );
+                          },
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -275,8 +283,7 @@ class DashboardPage extends StatelessWidget {
                           child: const Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.dehaze,
-                                  color: Colors.black, size: 30),
+                              Icon(Icons.dehaze, color: Colors.black, size: 30),
                               SizedBox(width: 8),
                               Text(
                                 'รายการเงิน',
