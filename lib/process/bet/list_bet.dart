@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_web/process/bet/bet01.dart';
 
 class ListBet extends StatelessWidget {
   const ListBet({super.key});
@@ -81,15 +82,22 @@ class ListBet extends StatelessWidget {
                                       horizontal: 8.0),
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color.fromARGB(
-                                          255, 8, 118, 88),
+                                      backgroundColor:
+                                          const Color.fromARGB(255, 8, 118, 88),
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 20),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(12),
                                       ),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const Bet01()),
+                                      );
+                                    },
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
@@ -161,8 +169,8 @@ class ListBet extends StatelessWidget {
                             children: [
                               // ปุ่ม "หวยออมสิน"
                               Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 8.0),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color.fromARGB(
@@ -181,8 +189,7 @@ class ListBet extends StatelessWidget {
                                         'ปิดรับแทง',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 255, 0, 0),
+                                          color: Color.fromARGB(255, 255, 0, 0),
                                           fontSize: 24,
                                         ),
                                       ),
@@ -204,8 +211,7 @@ class ListBet extends StatelessWidget {
                                         '-',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 0, 0, 0),
+                                          color: Color.fromARGB(255, 0, 0, 0),
                                           fontSize: 24,
                                         ),
                                       ),
@@ -216,8 +222,8 @@ class ListBet extends StatelessWidget {
                               const SizedBox(height: 16),
                               // ปุ่ม "หวยธกส."
                               Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 8.0),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: const Color.fromARGB(
@@ -236,8 +242,7 @@ class ListBet extends StatelessWidget {
                                         'ปิดรับแทง',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 255, 0, 0),
+                                          color: Color.fromARGB(255, 255, 0, 0),
                                           fontSize: 24,
                                         ),
                                       ),
@@ -259,8 +264,7 @@ class ListBet extends StatelessWidget {
                                         '-',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          color:
-                                              Color.fromARGB(255, 0, 0, 0),
+                                          color: Color.fromARGB(255, 0, 0, 0),
                                           fontSize: 24,
                                         ),
                                       ),

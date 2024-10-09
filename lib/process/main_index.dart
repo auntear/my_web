@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_web/process/bt_tang_bet/list_bet.dart';
+import 'package:my_web/process/bet/list_bet.dart';
 
 
 class DashboardPage extends StatelessWidget {
